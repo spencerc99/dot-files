@@ -1,5 +1,5 @@
 ## ANACONDA
-export PATH="//anaconda/bin:$PATH"
+# export PATH="~/anaconda/bin:$PATH"  # commented out by conda initialize
 export PATH="$PATH:/usr/local/bin/flutter/bin"
 
 # Environemnt Variables
@@ -142,3 +142,19 @@ if [ -f '/Users/spencerchang/Downloads/google-cloud-sdk/path.zsh.inc' ]; then so
 if [ -f '/Users/spencerchang/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/spencerchang/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/spencerchang/anaconda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/spencerchang/anaconda/etc/profile.d/conda.sh" ]; then
+        . "/Users/spencerchang/anaconda/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/spencerchang/anaconda/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
