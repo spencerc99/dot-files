@@ -5,6 +5,9 @@ export PATH="$PATH:/usr/local/bin/flutter/bin"
 # Environemnt Variables
 export RB_MONGO_URI="mongodb://heroku_1slm4741:fpljkulm7cd16nb8f75mqp0ume@ds245755.mlab.com:45755/heroku_1slm4741"
 
+# fix python console spacing on backspace
+export TERMINFO=/usr/share/terminfo
+
 # rvm
 source ~/.profile
 
@@ -110,17 +113,14 @@ alias gs='git status'
 alias gcm='git commit -m'
 alias ga='git add'
 alias gd='git diff'
-alias ricesql='tsql -U adrice\\sc73 -S classdb.ad.rice.edu:1433 -D "sc73"'
 alias ngcodecoverage='ng test --code-coverage true --reporters junit'
 alias gphm='git push heroku master'
-alias clearssh='ssh sc73@ssh.clear.rice.edu'
 source /Users/spencerchang/Desktop/GitHub/fastai/aws-alias.sh
 alias gpuom='git push -u origin master'
 alias grmc='git rm -r --cached'
 alias gspp='git stash; git pull; git stash pop'
 alias gcam='git commit --amend --no-edit'
 alias fixpush='git commit --amend --no-edit;git push -f'
-alias ameeshcluster='ssh ameesh@terminator1.ece.rice.edu'
 alias addCluster='python -m ipykernel install --user --name kindle-reviews --display-name "Python (kindle-reviews)"'
 addcondaenv() { python -m ipykernel install --user --name "$1" --display-name "Python ($1)" }
 
