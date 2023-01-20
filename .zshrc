@@ -160,3 +160,6 @@ unset __conda_setup
 
 # handles brew setup in path for m1?
 eval $(/opt/homebrew/bin/brew shellenv)
+
+# for 1password CLI / github integration
+source /Users/spencerchang/.config/op/plugins.sh
