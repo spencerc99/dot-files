@@ -29,3 +29,7 @@
   up = "!git pull origin \"$(git rev-parse --abbrev-ref HEAD)\""
   pr = "!open \"$(git remote -v | grep origin | grep push | cut -f 2 | cut -d \" \" -f 1 | sed -e \"s|git@\\(.*\\):\\(.*\\)|https://\\1/\\2|\")/compare/$(git rev-parse --abbrev-ref HEAD)\""
   gh = "!open \"$(git remote -v | grep origin | grep push | cut -f 2 | cut -d \" \" -f 1 | sed -e \"s|git@\\(.*\\):\\(.*\\).git|https://\\1/\\2|\")/tree/$(git rev-parse --abbrev-ref HEAD)\""
+[pull]
+	rebase = true
+[init]
+	defaultBranch = main

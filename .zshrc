@@ -115,7 +115,6 @@ alias ga='git add'
 alias gd='git diff'
 alias ngcodecoverage='ng test --code-coverage true --reporters junit'
 alias gphm='git push heroku master'
-source /Users/spencerchang/Desktop/GitHub/fastai/aws-alias.sh
 alias gpuom='git push -u origin master'
 alias grmc='git rm -r --cached'
 alias gspp='git stash; git pull; git stash pop'
@@ -123,6 +122,7 @@ alias gcam='git commit --amend --no-edit'
 alias fixpush='git commit --amend --no-edit;git push -f'
 alias addCluster='python -m ipykernel install --user --name kindle-reviews --display-name "Python (kindle-reviews)"'
 addcondaenv() { python -m ipykernel install --user --name "$1" --display-name "Python ($1)" }
+alias branches='git for-each-ref --sort=committerdate refs/heads/ --format='\''%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'\'
 
 # Hide username@computer on startup
 DEFAULT_USER=$USER
