@@ -8,9 +8,6 @@ export RB_MONGO_URI="mongodb://heroku_1slm4741:fpljkulm7cd16nb8f75mqp0ume@ds2457
 # fix python console spacing on backspace
 export TERMINFO=/usr/share/terminfo
 
-# rvm
-source ~/.profile
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -20,8 +17,8 @@ export ZSH=/Users/spencerchang/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-# ZSH_THEME="robbyrussell"
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="robbyrussell"
+# ZSH_THEME="powerlevel9k/powerlevel9k"
 POWERLEVEL9K_MODE='nerdfont-complete'
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh dir vcs newline status)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time anaconda)
@@ -71,7 +68,7 @@ POWERLEVEL9K_ANACONDA_BACKGROUND="cyan"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git osx z python zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(git macos z python zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -158,3 +155,6 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+
+# handles brew setup in path for m1?
+eval $(/opt/homebrew/bin/brew shellenv)
