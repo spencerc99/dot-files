@@ -14,6 +14,7 @@
    1. git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
    2. git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 6. Install https://github.com/junegunn/fzf for reverse search
+7. install Vundle https://github.com/VundleVim/Vundle.vim
 
 - [] add script for setup that does all the above and symlinks the hidden files
 
