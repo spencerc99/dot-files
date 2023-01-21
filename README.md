@@ -18,7 +18,7 @@ git clone --recurse-submodules <repo>
    2. git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 6. Install https://github.com/junegunn/fzf for reverse search
 
-- [] add script for setup that does all the above and symlinks the hidden files
+- [ ] add script for setup that does all the above and symlinks the hidden files
 
 crude command right now as follows:
 
@@ -29,8 +29,9 @@ ln -s ~/dot-files/iterm2_profile ~/
 unlink .git
 ```
 
-- [] add moon phase emoji
-- [] add sunset time
+- [ ] add moon phase emoji
+- [ ] add sunset time
+- [ ] figure out .git-completion.bash
 
 ## VSCode
 
