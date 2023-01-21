@@ -24,7 +24,6 @@ POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh dir vcs newline status)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time anaconda)
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 POWERLEVEL9K_ANACONDA_BACKGROUND="cyan"
-# ZSH_THEME="agnoster"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -74,11 +73,24 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+# customize prompt of robyrussell
+PROMPT="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
+PROMPT+=' %{$fg[cyan]%}%~%{$reset_color%} $(git_prompt_info)'
+
+# to add the date
+# RPROMPT="%{$fg[yellow]%}[%D{%m/%f}|%@]"
+RPROMPT="%{$fg[yellow]%}%@"   
+# ZSH_THEME="agnoster"
+# Change cursor to blinking block
+echo -e -n "\x1b[\x31 q"
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
+# set default editor to vim
+alias editor=vim
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
@@ -109,19 +121,27 @@ alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall F
 alias gs='git status'
 alias gcm='git commit -m'
 alias ga='git add'
+alias gaa='git add .'
 alias gd='git diff'
+alias gdim='git diff --color-moved=dimmed-zebra HEAD~1'
 alias ngcodecoverage='ng test --code-coverage true --reporters junit'
-alias gphm='git push heroku master'
-alias gpuom='git push -u origin master'
+alias gpuom='git push -u origin main'
 alias grmc='git rm -r --cached'
+alias grbom='git pull --rebase origin main'
 alias gls='git ls'
 alias gspp='git stash; git pull; git stash pop'
 alias gcam='git commit --amend --no-edit'
 alias gca='git commit --amend'
 alias fixpush='git commit --amend --no-edit;git push -f'
 alias addCluster='python -m ipykernel install --user --name kindle-reviews --display-name "Python (kindle-reviews)"'
-addcondaenv() { python -m ipykernel install --user --name "$1" --display-name "Python ($1)" }
 alias branches='git for-each-ref --sort=committerdate refs/heads/ --format='\''%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'\'
+alias cleanBranches='git branch --merged | grep -Ev "(\*|main|staging)" | xargs git branch -d; git gc --aggressive'
+alias pruneBranches='git branch -vv | grep origin | grep sc | awk '{print $1}' | xargs -L 1 git branch -d'
+
+# get git aliases from steve's dotfiles
+source ~/.git-aliases.zsh
+
+addcondaenv() { python -m ipykernel install --user --name "$1" --display-name "Python ($1)" }
 
 # Hide username@computer on startup
 DEFAULT_USER=$USER
