@@ -74,13 +74,13 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 ### Moon phases
-phase=$(sh ./current_moon_phase.sh)
+phase=$(sh ~/dot-files/current_moon_phase.sh)
 
 # customize prompt of robyrussell
 PROMPT="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
 PROMPT+="%{$fg[yellow]%}%@"
 PROMPT+=' %{$fg[cyan]%}%~%{$reset_color%}'
-PROMPT+="%B $phase%b  "
+PROMPT+="%B $phase%b "
 
 RPROMPT='$(git_prompt_info)'
 # ZSH_THEME="agnoster"
