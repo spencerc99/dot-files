@@ -73,13 +73,16 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+### Moon phases
+phase=$(sh ./current_moon_phase.sh)
+
 # customize prompt of robyrussell
 PROMPT="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
-PROMPT+=' %{$fg[cyan]%}%~%{$reset_color%} $(git_prompt_info)'
+PROMPT+="%{$fg[yellow]%}%@"
+PROMPT+=' %{$fg[cyan]%}%~%{$reset_color%}'
+PROMPT+="%B $phase%b  "
 
-# to add the date
-# RPROMPT="%{$fg[yellow]%}[%D{%m/%f}|%@]"
-RPROMPT="%{$fg[yellow]%}%@"   
+RPROMPT='$(git_prompt_info)'
 # ZSH_THEME="agnoster"
 # Change cursor to blinking block
 echo -e -n "\x1b[\x31 q"
@@ -112,6 +115,18 @@ alias editor=vim
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Navigation
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
+alias .......='cd ../../../../../..'
+alias ........='cd ../../../../../../..'
+alias .........='cd ../../../../../../../..'
+alias ..........='cd ../../../../../../../../..'
+
 # The next line creates an alias to show  hidden files.
 alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
 
@@ -165,14 +180,14 @@ if [ -f '/Users/spencerchang/Downloads/google-cloud-sdk/completion.zsh.inc' ]; t
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/spencerchang/anaconda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/Users/spencerchang/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/Users/spencerchang/anaconda/etc/profile.d/conda.sh" ]; then
-        . "/Users/spencerchang/anaconda/etc/profile.d/conda.sh"
+    if [ -f "/Users/spencerchang/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/spencerchang/opt/anaconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/Users/spencerchang/anaconda/bin:$PATH"
+        export PATH="/Users/spencerchang/opt/anaconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
@@ -184,3 +199,7 @@ eval $(/opt/homebrew/bin/brew shellenv)
 
 # for 1password CLI / github integration
 source /Users/spencerchang/.config/op/plugins.sh
+
+# naive way to hide (base) from prompt
+# more solutions: https://stackoverflow.com/questions/60807783/anacondaconda-how-to-show-only-a-non-base-environment
+PROMPT=$(echo $PROMPT | sed 's/(base) //')

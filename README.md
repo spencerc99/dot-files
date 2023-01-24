@@ -55,3 +55,9 @@ unlink .git
   name = Spencer Chang
   email = spencerc99@gmail.com
 ```
+
+## Resources Referenced
+
+- https://www.tweaking4all.com/software/macosx-software/customize-zsh-prompt/#PermanentcustomZShellPrompt
+- https://github.com/BobElDevil/dotfiles
+- https://github.com/vimhack/dotfiles#takacvim-hardtime
