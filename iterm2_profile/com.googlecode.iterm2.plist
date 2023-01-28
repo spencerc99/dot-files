@@ -1591,6 +1591,8 @@ Restart Session</string>
 				<key>Red Component</key>
 				<real>1</real>
 			</dict>
+			<key>Blend</key>
+			<real>0.5</real>
 			<key>Blinking Cursor</key>
 			<false/>
 			<key>Blur</key>
@@ -1668,6 +1670,8 @@ Restart Session</string>
 			</dict>
 			<key>Guid</key>
 			<string>C4A82B2B-F931-463F-B99E-E6136789270F</string>
+			<key>Hide After Opening</key>
+			<false/>
 			<key>Horizontal Spacing</key>
 			<real>1</real>
 			<key>Idle Code</key>
@@ -1989,6 +1993,8 @@ Restart Session</string>
 			<string>FiraCode-Regular 14</string>
 			<key>Only The Default BG Color Uses Transparency</key>
 			<false/>
+			<key>Open Toolbelt</key>
+			<false/>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
@@ -2032,7 +2038,7 @@ Restart Session</string>
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Transparency</key>
-			<real>0.040940824468085106</real>
+			<real>0.020940824468085102</real>
 			<key>Unlimited Scrollback</key>
 			<false/>
 			<key>Use Bold Font</key>

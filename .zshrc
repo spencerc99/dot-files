@@ -17,13 +17,12 @@ export ZSH=/Users/spencerchang/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
 # ZSH_THEME="powerlevel9k/powerlevel9k"
-POWERLEVEL9K_MODE='nerdfont-complete'
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh dir vcs newline status)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time anaconda)
-POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-POWERLEVEL9K_ANACONDA_BACKGROUND="cyan"
+# POWERLEVEL9K_MODE='nerdfont-complete'
+# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh dir vcs newline status)
+# POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time anaconda)
+# POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+# POWERLEVEL9K_ANACONDA_BACKGROUND="cyan"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -72,15 +71,30 @@ plugins=(git macos z python zsh-syntax-highlighting zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+# My custom theme
 
 ### Moon phases
-phase=$(sh ~/dot-files/current_moon_phase.sh)
+local phase=$(sh ~/dot-files/current_moon_phase.sh)
+
+### host name
+### see custom colors by typing `spectrum_ls`
+### %F{#hexcode} for custom color
+# https://www.linkedin.com/pulse/making-custom-zsh-theme-fun-aesthetic-md-mohibur-rahman/
+# https://rzhao.io/blog/2015/08/26/zsh-prompt/
+local host_name="%{$FG[008]%}正"
 
 # customize prompt of robyrussell
-PROMPT="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
-PROMPT+="%{$fg[yellow]%}%@"
-PROMPT+=' %{$fg[cyan]%}%~%{$reset_color%}'
-PROMPT+="%B $phase%b "
+PROMPT="%B$host_name$phase%b"
+PROMPT+="%{$fg[yellow]%}%@ "
+PROMPT+='%{$fg[cyan]%}%~%{$reset_color%} '
+PROMPT+="%B%(?:%{$fg_bold[green]%}∴ :%{$fg_bold[red]%}∴ )%b%{$reset_color%}"
+
+# based on `robbyrussell` theme's git prompt
+# reference: https://github.com/ohmyzsh/ohmyzsh/blob/master/themes/robbyrussell.zsh-theme
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[blue]%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX=""
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%} ✗"
+ZSH_THEME_GIT_PROMPT_CLEAN=""
 
 RPROMPT='$(git_prompt_info)'
 # ZSH_THEME="agnoster"
