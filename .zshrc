@@ -91,8 +91,8 @@ PROMPT+="%B%(?:%{$fg_bold[green]%}∴ :%{$fg_bold[red]%}∴ )%b%{$reset_color%}"
 
 # based on `robbyrussell` theme's git prompt
 # reference: https://github.com/ohmyzsh/ohmyzsh/blob/master/themes/robbyrussell.zsh-theme
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[blue]%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX=""
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%b%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%} ✗"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 
