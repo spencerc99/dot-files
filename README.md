@@ -45,6 +45,8 @@ unlink .git
 2. brew install --cask 1password/tap/1password-cli and then set up https://developer.1password.com/docs/cli/shell-plugins/github/
 3. follow https://labbots.com/enabling-touch-id-for-access-on-terminal/ to enable using touchID on password prompts
 4. `brew install python`
+5. `brew install loc` (lines of code in a project)
+6. `brew install tree` (list files as a tree)
 
 ## Git
 

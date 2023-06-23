@@ -1,5 +1,4 @@
 ## ANACONDA
-# export PATH="~/anaconda/bin:$PATH"  # commented out by conda initialize
 export PATH="$PATH:/usr/local/bin/flutter/bin"
 
 # Environemnt Variables
@@ -84,10 +83,11 @@ local phase=$(sh ~/dot-files/current_moon_phase.sh)
 local host_name="%{$FG[008]%}正"
 
 # customize prompt of robyrussell
-PROMPT="%B$host_name$phase%b"
-PROMPT+="%{$fg[yellow]%}%@ "
-PROMPT+='%{$fg[cyan]%}%~%{$reset_color%} '
-PROMPT+="%B%(?:%{$fg_bold[green]%}∴ :%{$fg_bold[red]%}∴ )%b%{$reset_color%}"
+NEWLINE=$'\n'
+HOSTNAME="%B$host_name%b"
+PROMPT="$phase%{$fg[yellow]%}%@ "
+PROMPT+="%{$fg[cyan]%}%~%{$reset_color%}${NEWLINE}"
+PROMPT+="${HOSTNAME}%B%(?:%{$fg_bold[green]%}∴ :%{$fg_bold[red]%}∴ )%b%{$reset_color%}"
 
 # based on `robbyrussell` theme's git prompt
 # reference: https://github.com/ohmyzsh/ohmyzsh/blob/master/themes/robbyrussell.zsh-theme
@@ -130,46 +130,7 @@ alias editor=vim
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Navigation
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias .....='cd ../../../..'
-alias ......='cd ../../../../..'
-alias .......='cd ../../../../../..'
-alias ........='cd ../../../../../../..'
-alias .........='cd ../../../../../../../..'
-alias ..........='cd ../../../../../../../../..'
-
-# The next line creates an alias to show  hidden files.
-alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
-
-# The next line creates an alias to hide hidden files.
-alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
-
-alias gs='git status'
-alias gcm='git commit -m'
-alias ga='git add'
-alias gaa='git add .'
-alias gd='git diff'
-alias gdim='git diff --color-moved=dimmed-zebra HEAD~1'
-alias ngcodecoverage='ng test --code-coverage true --reporters junit'
-alias gpuom='git push -u origin main'
-alias grmc='git rm -r --cached'
-alias grbom='git pull --rebase origin main'
-alias gls='git ls'
-alias gld='git ld'
-alias gspp='git stash; git pull; git stash pop'
-alias gcam='git commit --amend --no-edit'
-alias gca='git commit --amend'
-alias fixpush='git commit --amend --no-edit;git push -f'
-alias addCluster='python -m ipykernel install --user --name kindle-reviews --display-name "Python (kindle-reviews)"'
-alias branches='git for-each-ref --sort=committerdate refs/heads/ --format='\''%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'\'
-alias cleanBranches='git branch --merged | grep -Ev "(\*|main|staging)" | xargs git branch -d; git gc --aggressive'
-alias pruneBranches='git branch -vv | grep origin | grep sc | awk '{print $1}' | xargs -L 1 git branch -d'
-
-# get git aliases from steve's dotfiles
-source ~/.git-aliases.zsh
+source ~/.aliases.zsh
 
 addcondaenv() { python -m ipykernel install --user --name "$1" --display-name "Python ($1)" }
 
@@ -183,7 +144,6 @@ export PATH="$PATH:$HOME/.rvm/bin"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/spencerchang/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/spencerchang/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
@@ -194,17 +154,17 @@ if [ -f '/Users/spencerchang/Downloads/google-cloud-sdk/completion.zsh.inc' ]; t
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/spencerchang/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/spencerchang/opt/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/spencerchang/opt/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/spencerchang/opt/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
+# __conda_setup="$('/Users/spencerchang/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/Users/spencerchang/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+#         . "/Users/spencerchang/opt/anaconda3/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/Users/spencerchang/opt/anaconda3/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
 # <<< conda initialize <<<
 
 
@@ -217,3 +177,6 @@ source /Users/spencerchang/.config/op/plugins.sh
 # naive way to hide (base) from prompt
 # more solutions: https://stackoverflow.com/questions/60807783/anacondaconda-how-to-show-only-a-non-base-environment
 PROMPT=$(echo $PROMPT | sed 's/(base) //')
+
+# Created by `pipx` on 2023-03-01 06:59:42
+export PATH="$PATH:/Users/spencerchang/.local/bin"
